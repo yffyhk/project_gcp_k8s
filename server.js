@@ -26,8 +26,11 @@ app.post('/', urlencodedParser, async (req, res) => {
   console.log('someone try to login')
 
   const data = await login(req.body.user)
-
-  if(data) res.send(data)
+  
+  if(data) {
+    if(data.pw == req.body.pw)
+      res.send('Logined');
+  }
   else res.send('Null')
 });
 
@@ -35,7 +38,6 @@ app.post('/', urlencodedParser, async (req, res) => {
 async function login(id){
   const key = datastore.key(['user',id]);
   const user = await datastore.get(key);
-  console.log(user[0])
   return user[0];
 }
 

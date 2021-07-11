@@ -4,7 +4,7 @@ metadata:
   name: project-conf
   namespace: default
 data:
-  EXAMPLE: "Hi I am Tom"
+  EXAMPLE: "Login Request"
   NODE_ENV: "production"
 ---
 apiVersion: apps/v1
