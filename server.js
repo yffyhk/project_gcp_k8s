@@ -15,6 +15,7 @@ const port=8080;
 const app = express();
 
 const datastore = new Datastore();
+datastore.defineMapper('user');
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname+'/login.html');
@@ -28,16 +29,13 @@ app.post('/', urlencodedParser, async (req, res) => {
   const data = await login(req.body.user)
 
   if(data) res.send(data)
-  else res.send('Login Failed')
+  else res.send('Null')
 });
 
 
 async function login(id){
-  console.log('starting to get data')
-  const key = await datastore.get(datastore.key(['user', id]))
-  console.log('get data finished')
-  if (key) console.log(key[0]);
-  return key[0].content;
+  const user = await datastore.find('user', id);
+  return user;
 }
 
 
