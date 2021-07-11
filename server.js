@@ -19,6 +19,7 @@ const datastore = new Datastore();
 app.get('/', function (req, res) {
     res.sendFile(__dirname+'/login.html');
     console.log(process.env.EXAMPLE)
+    console.log('v1');
 });
 
 app.post('/', urlencodedParser, async (req, res) => {
