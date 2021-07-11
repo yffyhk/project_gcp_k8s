@@ -22,18 +22,19 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', urlencodedParser, async (req, res) => {
-    
+  
+  console.log('someone try to login')
+
   const data = await login(req.body.user)
 
   if(data) res.send(data)
   else res.send('Login Failed')
-
 });
 
 
-function login(id){
-  const key = datastore.key(['user', id])
-  return datastore.get(key)[0].content;
+async function login(id){
+  const key = await datastore.get(datastore.key(['user', id]))
+  return key[0].content;
 }
 
 
