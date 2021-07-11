@@ -15,7 +15,6 @@ const port=8080;
 const app = express();
 
 const datastore = new Datastore();
-datastore.defineMapper('user');
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname+'/login.html');
