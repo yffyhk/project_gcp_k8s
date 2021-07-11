@@ -32,7 +32,6 @@ spec:
           directory: .
       containers:
       - image: yffyhk/project:latest
-        imagePullPolicy: Always
         name: nodejs
         workingDir: /usr/src/app
         livenessProbe:

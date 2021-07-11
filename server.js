@@ -36,7 +36,7 @@ async function login(id){
   console.log('starting to get data')
   const key = await datastore.get(datastore.key(['user', id]))
   console.log('get data finished')
-  if (key) console.log(key[0].content);
+  if (key) console.log(key[0]);
   return key[0].content;
 }
 
