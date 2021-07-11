@@ -28,9 +28,7 @@ app.post('/', urlencodedParser, async (req, res) => {
   const data = await login(req.body.user)
   
   if(data) {
-    console.log(data.pw)
-    console.log(req.body.pw)
-    if(data.pw == req.body.pw)  res.send('Logined');
+    if(data.pw == req.body.password)  res.send('Logined');
     else res.send('Wrong Info.');
   }
   else res.send('Null')
