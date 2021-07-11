@@ -33,8 +33,10 @@ app.post('/', urlencodedParser, async (req, res) => {
 
 
 async function login(id){
-  const user = await datastore.find('user', id);
-  return user;
+  const key = datastore.key(['user',id]);
+  const user = await datastore.get(key);
+  console.log(user[0])
+  return user[0];
 }
 
 
