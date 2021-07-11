@@ -28,8 +28,8 @@ app.post('/', urlencodedParser, async (req, res) => {
   const data = await login(req.body.user)
   
   if(data) {
-    if(data.pw == req.body.pw)
-      res.send('Logined');
+    console.log(data.pw)
+    res.send('Logined');
   }
   else res.send('Null')
 });

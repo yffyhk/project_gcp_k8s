@@ -23,6 +23,7 @@ spec:
       name: project-pod
       labels:
         app: project
+        version: v1
     spec:
       volumes:
       - name: html
