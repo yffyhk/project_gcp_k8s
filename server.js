@@ -17,7 +17,7 @@ const app = express();
 const datastore = new Datastore();
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname+'/html/login.html');
+    res.sendFile(__dirname+'/login.html');
     console.log(process.env.EXAMPLE)
 });
 
