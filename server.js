@@ -33,7 +33,10 @@ app.post('/', urlencodedParser, async (req, res) => {
 
 
 async function login(id){
+  console.log('starting to get data')
   const key = await datastore.get(datastore.key(['user', id]))
+  console.log('get data finished')
+  if (key) console.log('not null')
   return key[0].content;
 }
 
