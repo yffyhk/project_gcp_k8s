@@ -25,9 +25,8 @@ app.post('/', urlencodedParser, async (req, res) => {
     
   const data = await login(req.body.user)
 
-  if(data){
-    console.log(data);
-  }
+  if(data) res.send(data)
+  else res.send('Login Failed')
 
 });
 
